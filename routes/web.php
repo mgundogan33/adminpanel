@@ -15,4 +15,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 });
 
-Route::get('/yonetim/moduller',[ModulController::class,'index']);
+Route::get('/yonetim/moduller',[ModulController::class,'index'])->name('moduller');
+Route::post('/yonetim/modul-ekle',[ModulController::class,'modulekle'])->name('modul-ekle');
