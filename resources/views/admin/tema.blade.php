@@ -38,7 +38,7 @@
     <div id="main-wrapper">
         @include('admin.data.header')
         @include('admin.data.menu')
-        @yield('master')
+        @yield('content')
         @include('admin.data.footer')
 
     </div>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('admin') }}/plugins/chartist/css/chartist.min.css">
 <link rel="stylesheet" href="{{ asset('admin') }}/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
         @endsection
-        @section('master')
+        @section('content')
         <!--**********************************
             Content body start
         ***********************************-->
