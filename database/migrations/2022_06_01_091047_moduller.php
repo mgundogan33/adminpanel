@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('moduller', function (Blueprint $table) {
             $table->id();
-            $table->string('baslık');
-            $table->string('selflink');
+            $table->string('baslik');
+            $table->string('seflink');
             $table->enum('durum',[1,2])->default(1);      /*1 aktıf 2 pasıf*/
             $table->timestamps();
         });

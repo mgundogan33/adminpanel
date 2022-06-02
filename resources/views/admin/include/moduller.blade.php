@@ -20,7 +20,7 @@
                                     <label class="sr-only">Modül İsmi</label>
                                 </div>
                                 <div class="form-group mx-sm-3 mb-2">
-                                    <input type="text" class="form-control" placeholder="Modül İsmi" name="baslık">
+                                    <input type="text" class="form-control" placeholder="Modül İsmi" name="baslik">
                                 </div>
                                 <button type="submit" class="btn btn-dark mb-2">Modül Oluştur</button>
                             </form>
