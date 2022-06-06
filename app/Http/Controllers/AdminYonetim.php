@@ -164,4 +164,26 @@ class AdminYonetim extends Controller
             return redirect()->route('home');
         }
     }
+    public function durum($modul,$id)
+    {
+        $modulBilgisi = Moduller::whereDurum(1)->whereSeflink($modul)->first();
+        $kategoriBilgisi = Kategoriler::whereTablo('modul')->whereSeflink($modul)->get();
+        if ($modulBilgisi && $kategoriBilgisi) {
+            $modelDosyaAdi = ucfirst($modulBilgisi->seflink);
+            $dinamikModel = "App\Models\\" . $modelDosyaAdi;
+            $veriler = $dinamikModel::whereId($id)->first();
+            if ($veriler) {
+                if($veriler->durum==1){$durum=2;}else{$durum=1;}
+                $kaydet = $dinamikModel::whereId($id)->update([
+                    'durum' => $durum
+                ]);
+                return redirect()->back()->with('basarili','İşleminiz başarıyla kaydedildi');
+            } else {
+                return redirect()->back();
+            }
+        }
+        else {
+            return redirect()->back();
+        }
+    }
 }
