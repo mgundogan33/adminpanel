@@ -19,9 +19,11 @@ class AdminYonetim extends Controller
     }
     public function liste($modul)
     {
-        $kontrol = Moduller::whereDurum(1)->whereSeflink($modul)->first();
-        if ($kontrol) {
-            return view('admin.include.liste');
+        $dinamikModul = Moduller::whereDurum(1)->whereSeflink($modul)->first();
+        if ($dinamikModul) {
+            $dinamikModel = "App\Models\\" . ucfirst($dinamikModul->seflink);
+            $veriler = $dinamikModel::get();
+            return view('admin.include.liste', compact(['veriler','dinamikModul']));
         } else {
             return redirect()->route('home');
         }
@@ -48,7 +50,7 @@ class AdminYonetim extends Controller
                 'description' => 'required'
             ]);
             $baslik = $request->baslik;
-            $seflink = Str::slug($baslik,'');
+            $seflink = Str::slug($baslik, '');
             $metin = $request->metin;
             $kategori = $request->kategori;
             $anahtar = $request->anahtar;
@@ -81,8 +83,7 @@ class AdminYonetim extends Controller
                 ]);
             }
 
-            return redirect()->route('ekle',$modulBilgisi->seflink)->with('basarili','İşleminiz başarıyla kaydedildi');
-
+            return redirect()->route('ekle', $modulBilgisi->seflink)->with('basarili', 'İşleminiz başarıyla kaydedildi');
         } else {
             return redirect()->route('home');
         }
