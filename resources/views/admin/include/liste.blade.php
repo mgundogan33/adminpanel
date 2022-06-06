@@ -41,8 +41,8 @@
                                                     <td>{{$bilgiler->updated_at}}</td>
                                                     <td></td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary">Düzenle</a>
-                                                        <a href="" class="btn btn-danger">Sil</a>
+                                                        <a href="{{route('duzenle',[$dinamikModul->seflink,$bilgiler->id])}}" class="btn btn-primary">Düzenle</a>
+                                                        <a href="{{route('sil',[$dinamikModul->seflink,$bilgiler->id])}}" class="btn btn-danger">Sil</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
